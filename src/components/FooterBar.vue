@@ -3,9 +3,9 @@
     <div class="container footer__inner">
       <p class="footer__copy">© {{ year }} Amandine LANGLAIS — Fait avec Vue.js</p>
       <div class="footer__links">
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/ALAzeMiss" target="_blank" rel="noopener">GitHub</a>
         <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/tarto_photo/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
   </footer>
