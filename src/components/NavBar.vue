@@ -7,10 +7,10 @@
 
       <nav class="navbar__links" :class="{ open: menuOpen }">
         <RouterLink to="/" @click="menuOpen = false">Accueil</RouterLink>
-        <RouterLink to="/photos" @click="menuOpen = false">Photos</RouterLink>
+        <RouterLink to="/photos" @click="menuOpen = false">Nouveautés</RouterLink>
+        <RouterLink to="/albums" @click="menuOpen = false">Albums</RouterLink>
         <RouterLink to="/projects" @click="menuOpen = false">Projets</RouterLink>
         <RouterLink to="/about" @click="menuOpen = false">À propos</RouterLink>
-        <RouterLink to="/contact" @click="menuOpen = false">Contact</RouterLink>
       </nav>
 
       <button class="navbar__burger" @click="menuOpen = !menuOpen" aria-label="Menu">
@@ -43,7 +43,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 1.5rem 0;
+  padding: 0.5rem 0;
   transition: var(--transition);
 }
 

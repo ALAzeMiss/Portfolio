@@ -4,16 +4,13 @@
       <div class="about__text">
         <h1 class="section-title">À <span class="accent">propos</span></h1>
         <p>
-          Remplace ce texte par ta présentation. Qui tu es, d'où tu viens,
-          ce qui te passionne dans le développement. Sois authentique.
+          Je suis Amandine, une photographe passionnée et ingénieure informatique en apprentissage.
+          J'aime capturer des moments uniques à travers mon objectif, que ce soit des paysages époustouflants ou des portraits expressifs.
         </p>
         <p>
           Tu peux parler de ton parcours, de ta façon de travailler,
           de ce qui te rend unique en tant que développeur.
         </p>
-        <RouterLink to="/contact" class="about__cta">
-          Travaillons ensemble →
-        </RouterLink>
       </div>
 
       <div class="about__skills">
@@ -33,11 +30,11 @@
 const skillCategories = [
   {
     name: 'Frontend',
-    skills: ['Vue.js', 'HTML/CSS', 'JavaScript', 'TypeScript']
+    skills: ['Vue.js', 'HTML/CSS', 'JavaScript']
   },
   {
     name: 'Backend',
-    skills: ['Python', 'FastAPI', 'Node.js', 'PostgreSQL']
+    skills: ['Python', 'Node.js', 'SQL']
   },
   {
     name: 'DevOps & Outils',

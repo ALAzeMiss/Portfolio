@@ -9,7 +9,19 @@
           v-for="album in albums"
           :key="album.id"
           class="project-card"
+          @click="goToAlbum(album.id)"
         >
+          <div class="project-card__image-wrapper">
+            <img 
+              :src="album.imagePath" 
+              :alt="album.title"
+              class="project-card__preview"
+            />
+            <div class="project-card__overlay">
+              <span class="project-card__overlay-text">Voir les photos</span>
+            </div>
+          </div>
+          
           <div class="project-card__header">
             <div class="project-card__tags">
               <span v-for="tag in album.tags" :key="tag" class="tag">{{ tag }}</span>
@@ -17,14 +29,6 @@
           </div>
           <h2 class="project-card__title">{{ album.title }}</h2>
           <p class="project-card__desc">{{ album.description }}</p>
-          <div class="project-card__links">
-            <a v-if="album.demo" :href="album.demo" target="_blank" rel="noopener">
-              Demo →
-            </a>
-            <a v-if="album.github" :href="album.github" target="_blank" rel="noopener">
-              GitHub →
-            </a>xwd
-          </div>
         </article>
       </div>
     </div>
@@ -32,29 +36,65 @@
 </template>
 
 <script setup>
-const albums = [
+import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+
+const router = useRouter()
+
+// Charger les photos de chaque dossier d'album
+const pyreneePhotos = import.meta.glob('@/assets/photos/pyrenees/*.{jpg,jpeg,png,gif}', { eager: true })
+const cosplayPhotos = import.meta.glob('@/assets/photos/cosplay/*.{jpg,jpeg,png,gif}', { eager: true })
+const personalPhotos = import.meta.glob('@/assets/photos/personal/*.{jpg,jpeg,png,gif}', { eager: true })
+
+// Convertir les modules en tableaux et trier par nom de fichier
+const getPhotosArray = (globModule) => {
+  return Object.entries(globModule)
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([, module]) => module.default)
+}
+
+const pyreneePhotosArray = getPhotosArray(pyreneePhotos)
+const cosplayPhotosArray = getPhotosArray(cosplayPhotos)
+const personalPhotosArray = getPhotosArray(personalPhotos)
+
+const allAlbums = [
   {
     id: 1,
     title: 'Voyage dans les Pyrénées',
     description: 'Photographies prises lors d\'un voyage dans les Pyrénées.',
     tags: ['Mountain', 'Nature', 'Travel'],
-    imagePath: '/assets/photos/pyrenees.jpg'
+    photos: pyreneePhotosArray,
+    imagePath: pyreneePhotosArray[0] || '',
+    text: 'À compléter avec vos impressions du voyage...'
   },
   {
     id: 2,
     title: 'Shooting de cosplays',
     description: 'Photographies prises lors d\'un shooting de cosplays au domaine de Cangé.',
     tags: ['Cosplay', 'Portraits', 'Event'],
-    imagePath: '/assets/photos/cosplay.jpg'
+    photos: cosplayPhotosArray,
+    imagePath: cosplayPhotosArray[0] || '',
+    text: 'À compléter avec vos impressions du shooting...'
   },
   {
     id: 3,
     title: 'Projet personnel',
     description: 'Un projet side qui montre ta curiosité et ta capacité à apprendre de nouvelles choses.',
     tags: ['Python', 'FastAPI'],
-    imagePath: '/assets/photos/personal.jpg'
+    photos: personalPhotosArray,
+    imagePath: personalPhotosArray[0] || '',
+    text: 'À compléter avec la description de votre projet...'
   }
 ]
+
+// Filtrer les albums qui ont une image de preview
+const albums = computed(() => {
+  return allAlbums.filter(album => album.imagePath && album.imagePath.length > 0)
+})
+
+const goToAlbum = (albumId) => {
+  router.push({ name: 'album-detail', params: { id: albumId } })
+}
 </script>
 
 <style scoped>
@@ -70,29 +110,70 @@ const albums = [
 
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5px;
   border: 1.5px solid var(--color-border);
 }
 
 .project-card {
-  padding: 2rem;
   border: 1.5px solid var(--color-border);
   margin: -1.5px;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
 }
 
-.project-card:hover {
+.project-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
   background: var(--color-surface);
+}
+
+.project-card__preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.project-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-card__overlay {
+  opacity: 1;
+}
+
+.project-card__overlay-text {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .project-card__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .project-card__number {
@@ -113,14 +194,16 @@ const albums = [
 .project-card__title {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 700; 
-  line-height: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0 1.5rem;
 }
 
 .project-card__desc {
   color: var(--color-muted);
   font-size: 0.95rem;
   flex: 1;
+  padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
 .project-card__links {
@@ -136,5 +219,17 @@ const albums = [
 
 .project-card__links a:hover {
   color: var(--color-accent);
+}
+
+@media (max-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

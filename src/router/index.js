@@ -14,6 +14,11 @@ const routes = [
     component: () => import('../views/PhotoView.vue')
   },
   {
+    path: '/photos/:id',
+    name: 'album-detail',
+    component: () => import('../views/AlbumDetailView.vue')
+  },
+  {
     path: '/projects',
     name: 'projects',
     component: () => import('../views/ProjectsView.vue')
@@ -24,9 +29,9 @@ const routes = [
     component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/contact',
-    name: 'contact',
-    component: () => import('../views/ContactView.vue')
+    path: '/albums',
+    name: 'albums',
+    component: () => import('../views/AlbumsView.vue')
   }
 ]
 

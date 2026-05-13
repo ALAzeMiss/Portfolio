@@ -11,7 +11,7 @@
         informatique
       </h1>
       <p class="hero__desc">
-        Je suis apprentie photographe et ingénieure informatique. 
+        Je suis apprentie ingénieure informatique et photographe. 
         Je suis tout autant passionnée par la photographie que par la technologie.
       </p>
       <div class="hero__actions">
