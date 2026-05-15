@@ -3,19 +3,20 @@
 ================================ */
 :root {
   --color-bg: #0d0d0d;
-  --color-surface: #161616;
-  --color-border: #2a2a2a;
-  --color-accent: #7042BE;
+  --color-surface: #403F36;
+  --color-border: #3E354D;
+  --color-accent: #7142BF;
   --color-text: #f0f0f0;
+  --color-contrast: #D9D34C;
   --color-muted: #CCC2F2;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Lexend Tera', sans-serif;
+  --font-body: 'Red Hat Display', sans-serif;
 
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
-  --spacing-xl: 8rem;
+  --spacing-xl: 3rem;
 
   --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --radius: 4px;
@@ -58,7 +59,7 @@ ul {
    UTILITIES
 ================================ */
 .container {
-  max-width: 1100px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
@@ -67,12 +68,23 @@ ul {
   color: var(--color-accent);
 }
 
+.accent2 {
+  color: var(--color-contrast);
+}
+
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.2em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: default;
+}
+
+.section-title:hover {
+  transform: scale(1.08);
+  letter-spacing: 0.25em;
 }
 
 .tag {

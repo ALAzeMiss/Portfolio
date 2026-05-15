@@ -35,7 +35,7 @@
 const albums = [
   {
     id: 1,
-    title: 'Voyage dans les Pyrénées',
+    title: 'Animaux',
     description: 'Photographies prises lors d\'un voyage dans les Pyrénées.',
     tags: ['Mountain', 'Nature', 'Travel'],
     imagePath: '/assets/photos/pyrenees.jpg'

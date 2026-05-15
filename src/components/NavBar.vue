@@ -63,11 +63,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .navbar__logo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   letter-spacing: -0.01em;
   transition: var(--transition);
 }
-.navbar__logo:hover { opacity: 0.7; }
+.navbar__logo:hover { opacity: 0.75; color: var(--color-contrast); }
 
 .navbar__links {
   display: flex;
@@ -80,12 +80,12 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   transition: var(--transition);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .navbar__links a:hover,
 .navbar__links a.router-link-active {
-  color: var(--color-text);
+  color: var(--color-contrast);
 }
 
 .navbar__links a.router-link-exact-active {

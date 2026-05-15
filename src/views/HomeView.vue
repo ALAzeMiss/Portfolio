@@ -7,7 +7,8 @@
       <h1 class="hero__title section-title">
         <span class="accent">Photographe<br /></span>
         Tout genre<br />
-        <span class="accent">& Ingénieure</span> 
+        <span class="accent2">&</span><br />
+        <span class="accent"> Ingénieure</span> 
         informatique
       </h1>
       <p class="hero__desc">
@@ -100,7 +101,7 @@
   border-color: var(--color-border);
   color: var(--color-text);
 }
-.btn--ghost:hover { border-color: var(--color-text); transform: translateY(-2px); }
+.btn--ghost:hover { border-color: var(--color-contrast); transform: translateY(-2px); }
 
 .hero__tags {
   display: flex;
