@@ -45,7 +45,7 @@ const skillCategories = [
 
 <style scoped>
 .about {
-  padding: calc(var(--spacing-xl) + 4rem) 0 var(--spacing-xl);
+  padding: calc(var(--spacing-lg) + 4rem) 0 var(--spacing-xl);
 }
 
 .about__inner {

@@ -16,7 +16,7 @@
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
-  --spacing-xl: 3rem;
+  --spacing-xl: 8rem;
 
   --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --radius: 4px;
@@ -112,6 +112,29 @@ ul {
   background: rgba(113, 66, 191, 0.2);
   transform: translateY(-2px);
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(1.7rem, 4vw, 2.8rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+  }
+
+
+}
+
+
 
 /* ================================
    SCROLLBAR

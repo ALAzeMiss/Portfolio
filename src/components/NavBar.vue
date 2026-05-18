@@ -111,6 +111,10 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 
 @media (max-width: 640px) {
+  .navbar__logo {
+    font-size: 1rem;
+  }
+
   .navbar__burger { display: flex; }
 
   .navbar__links {

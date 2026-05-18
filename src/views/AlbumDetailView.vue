@@ -171,7 +171,7 @@ onMounted(() => {
 
 <style scoped>
 .album-detail {
-  padding: calc(var(--spacing-xl) + 4rem) 0 var(--spacing-xl);
+  padding: calc(var(--spacinglgl) + 4rem) 0 var(--spacing-xl);
 }
 
 .album-detail__header {

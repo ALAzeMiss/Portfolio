@@ -115,7 +115,7 @@ const handleTagClick = (tag) => {
 
 <style scoped>
 .projects {
-  padding: calc(var(--spacing-xl) + 4rem) 0 var(--spacing-xl);
+  padding: calc(var(--spacing-lg) + 4rem) 0 var(--spacing-xl);
 }
 
 .projects__sub {
@@ -243,9 +243,101 @@ const handleTagClick = (tag) => {
   }
 }
 
+@media (max-width: 768px) {
+  .projects {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .projects__sub {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .project-card__title {
+    font-size: 1.2rem;
+    padding: 0 1.2rem;
+  }
+
+  .project-card__desc {
+    font-size: 0.9rem;
+    padding: 0 1.2rem 1.2rem 1.2rem;
+  }
+}
+
 @media (max-width: 640px) {
+  .projects {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .projects__sub {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
   .projects__grid {
     grid-template-columns: 1fr;
+    gap: 1px;
+    border-width: 1px;
+  }
+
+  .project-card {
+    border-width: 1px;
+    margin: -1px;
+    gap: 0.75rem;
+  }
+
+  .project-card__title {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .project-card__desc {
+    font-size: 0.85rem;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .project-card__overlay-text {
+    font-size: 1rem;
+  }
+
+  .project-card__tags {
+    gap: 0.25rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+  padding: var(--spacing-xl) 0 var(--spacing-xl);
+}
+
+  .projects__sub {
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card {
+    gap: 0.5rem;
+  }
+
+  .project-card__title {
+    font-size: 1rem;
+    padding: 0 0.8rem;
+  }
+
+  .project-card__desc {
+    font-size: 0.8rem;
+    padding: 0 0.8rem 0.8rem 0.8rem;
+  }
+
+  .project-card__tags {
+    gap: 0.2rem;
+    padding: 0 0.8rem;
+  }
+
+  .tag {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
   }
 }
 </style>

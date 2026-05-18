@@ -62,7 +62,7 @@ const projects = [
 
 <style scoped>
 .projects {
-  padding: calc(var(--spacing-xl) + 4rem) 0 var(--spacing-xl);
+  padding: var(--spacing-xl) 0 var(--spacing-xl);
 }
 
 .projects__sub {
