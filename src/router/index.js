@@ -32,6 +32,11 @@ const routes = [
     path: '/albums',
     name: 'albums',
     component: () => import('../views/AlbumsView.vue')
+  },
+  {
+    path: '/albums/:slug',
+    name: 'category-detail',
+    component: () => import('../views/CategoryDetailView.vue')
   }
 ]
 

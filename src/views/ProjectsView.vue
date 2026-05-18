@@ -37,18 +37,17 @@
 const projects = [
   {
     id: 1,
-    title: 'Nom du projet',
-    description: 'Courte description de ce projet, ce qu\'il fait et les défis techniques rencontrés.',
-    tags: ['Vue.js', 'Python', 'PostgreSQL'],
-    demo: 'https://example.com',
-    github: 'https://github.com/'
+    title: 'Astrobot',
+    description: 'Développement d\'un bot discord pour s\'amuser en capturant des pokémons virtuels dans le serveur.',
+    tags: ['Python'],
+    github: 'https://github.com/Shunikai972/Astro-discord-bot'
   },
   {
     id: 2,
-    title: 'Autre projet',
-    description: 'Description du projet. Tu peux mentionner l\'impact, les utilisateurs, les techno utilisées.',
-    tags: ['Node.js', 'Docker', 'Redis'],
-    github: 'https://github.com/'
+    title: 'Mon Portofolio',
+    description: 'Ce site que tu es en train de visiter ! Construit avec Vue.js et Vite pour présenter mes projets et compétences.',
+    tags: ['Vue.js', 'Vite'],
+    github: 'https://github.com/ALAzeMiss/Portfolio'
   },
   {
     id: 3,

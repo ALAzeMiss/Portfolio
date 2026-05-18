@@ -8,8 +8,8 @@
           J'aime capturer des moments uniques à travers mon objectif, que ce soit des paysages époustouflants ou des portraits expressifs.
         </p>
         <p>
-          Tu peux parler de ton parcours, de ta façon de travailler,
-          de ce qui te rend unique en tant que développeur.
+          Je suis en apprentissage en ingénierie informatique embarquée à la SNCF. 
+          Cela me permet de beaucoup voyager et d'explorer de nouveaux endroits pour mes projets photo.
         </p>
       </div>
 
@@ -29,16 +29,16 @@
 // ✏️  Adapte ces compétences aux tiennes
 const skillCategories = [
   {
-    name: 'Frontend',
-    skills: ['Vue.js', 'HTML/CSS', 'JavaScript']
+    name: 'Web',
+    skills: ['Vue.js', 'HTML/CSS', 'JavaScript', 'SQL']
   },
   {
-    name: 'Backend',
-    skills: ['Python', 'Node.js', 'SQL']
+    name: 'Programmation',
+    skills: ['Python', 'C', 'C++', 'Java']
   },
   {
     name: 'DevOps & Outils',
-    skills: ['Docker', 'Git', 'Linux', 'CI/CD']
+    skills: ['Docker', 'Git', 'Linux']
   }
 ]
 </script>

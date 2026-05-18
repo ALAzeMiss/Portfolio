@@ -1,7 +1,7 @@
 <template>
   <section class="projects">
     <div class="container">
-      <h1 class="section-title">Mes <span class="accent">Photos</span></h1>
+      <h1 class="section-title">Les <span class="accent">Nouveautés</span></h1>
       <p class="projects__sub">Une sélection de mes dernières photographies.</p>
 
       <div class="projects__grid">
@@ -24,7 +24,15 @@
           
           <div class="project-card__header">
             <div class="project-card__tags">
-              <span v-for="tag in album.tags" :key="tag" class="tag">{{ tag }}</span>
+              <button 
+                v-for="tag in album.tags" 
+                :key="tag" 
+                @click.stop="handleTagClick(tag)"
+                :class="{ clickable: isTagACategory(tag) }"
+                class="tag"
+              >
+                {{ tag }}
+              </button>
             </div>
           </div>
           <h2 class="project-card__title">{{ album.title }}</h2>
@@ -38,6 +46,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { computed } from 'vue'
+import { getSlugFromTag, isTagACategory } from '@/utils/tagMapping'
 
 const router = useRouter()
 
@@ -62,7 +71,7 @@ const allAlbums = [
     id: 1,
     title: 'Voyage dans les Pyrénées',
     description: 'Photographies prises lors d\'un voyage dans les Pyrénées.',
-    tags: ['Mountain', 'Nature', 'Travel'],
+    tags: ['Montagne', 'Animaux', 'Travel'],
     photos: pyreneePhotosArray,
     imagePath: pyreneePhotosArray[0] || '',
     text: 'À compléter avec vos impressions du voyage...'
@@ -71,7 +80,7 @@ const allAlbums = [
     id: 2,
     title: 'Shooting de cosplays',
     description: 'Photographies prises lors d\'un shooting de cosplays au domaine de Cangé.',
-    tags: ['Cosplay', 'Portraits', 'Event'],
+    tags: ['Cosplay', 'Portraits', 'Personnes'],
     photos: cosplayPhotosArray,
     imagePath: cosplayPhotosArray[0] || '',
     text: 'À compléter avec vos impressions du shooting...'
@@ -94,6 +103,13 @@ const albums = computed(() => {
 
 const goToAlbum = (albumId) => {
   router.push({ name: 'album-detail', params: { id: albumId } })
+}
+
+const handleTagClick = (tag) => {
+  const slug = getSlugFromTag(tag)
+  if (slug) {
+    router.push({ name: 'category-detail', params: { slug } })
+  }
 }
 </script>
 

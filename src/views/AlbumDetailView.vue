@@ -60,7 +60,15 @@
         <!-- Infos de l'album -->
         <div class="album-info">
           <div class="album-info__tags">
-            <span v-for="tag in album?.tags" :key="tag" class="tag">{{ tag }}</span>
+            <button 
+              v-for="tag in album?.tags" 
+              :key="tag" 
+              @click="handleTagClick(tag)"
+              :class="{ clickable: isTagACategory(tag) }"
+              class="tag"
+            >
+              {{ tag }}
+            </button>
           </div>
           <p class="album-info__description">{{ album?.description }}</p>
           <div class="album-info__text">
@@ -76,6 +84,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { getSlugFromTag, isTagACategory } from '@/utils/tagMapping'
 
 const router = useRouter()
 const route = useRoute()
@@ -146,6 +155,13 @@ const prevPhoto = () => {
 
 const goBack = () => {
   router.back()
+}
+
+const handleTagClick = (tag) => {
+  const slug = getSlugFromTag(tag)
+  if (slug) {
+    router.push({ name: 'category-detail', params: { slug } })
+  }
 }
 
 onMounted(() => {

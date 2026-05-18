@@ -102,6 +102,17 @@ ul {
   color: var(--color-accent);
 }
 
+.tag.clickable {
+  cursor: pointer;
+  border-color: var(--color-accent);
+  background: rgba(113, 66, 191, 0.1);
+}
+
+.tag.clickable:hover {
+  background: rgba(113, 66, 191, 0.2);
+  transform: translateY(-2px);
+}
+
 /* ================================
    SCROLLBAR
 ================================ */
